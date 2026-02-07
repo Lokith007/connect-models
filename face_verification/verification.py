@@ -8,24 +8,20 @@ class FaceVerifier:
         self.model_name = model_name
         self.detector_backend = detector_backend
         self.distance_metric = distance_metric
-        # Thresholds for ArcFace with Cosine Similarity
-        # DeepFace default is usually good, but we can enforce strictness
-        self.threshold = 0.68 # Slightly stricter than default for security
+        self.threshold = 0.68 
 
     def verify(self, img1_path, img2_path):
         """
         Verifies if two images belong to the same person.
         """
         try:
-            # 1. Verify existence of faces first (DeepFace does this internally but we want control)
-            # basic check to see if faces are detectable
             result = DeepFace.verify(
                 img1_path=img1_path,
                 img2_path=img2_path,
                 model_name=self.model_name,
                 detector_backend=self.detector_backend,
                 distance_metric=self.distance_metric,
-                enforce_detection=True, # STRICT: Fail if face not found
+                enforce_detection=True,
                 align=True
             )
             
@@ -39,7 +35,6 @@ class FaceVerifier:
             }
 
         except ValueError as e:
-            # This usually happens if face is not detected
             return {
                 "verified": False,
                 "error": str(e),
