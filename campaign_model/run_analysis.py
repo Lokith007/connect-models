@@ -1,16 +1,14 @@
-from campaign_model import CampaignModel
+from campaign_model.campaign_model import CampaignModel
 import pandas as pd
 
 def run_analysis():
     print("Starting Campaign Analysis...")
     
-    # Initialize and train model
     model = CampaignModel()
     model.load_data()
     model.train_model()
     mse, r2 = model.evaluate_model()
     
-    # Feature Importance
     print("\n--- Feature Importance (Impact on Sales Uplift) ---")
     importance = model.get_feature_importance()
     print(importance)
@@ -20,7 +18,6 @@ def run_analysis():
     top_feature = importance.iloc[0]['Feature']
     print(f"The most influential factor is '{top_feature}'.")
     
-    # Sample Prediction & ROI Analysis
     print("\n--- Sample Campaign Prediction ---")
     new_campaign = {
         'campaign_duration_days': 30,

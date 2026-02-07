@@ -66,8 +66,6 @@ class CampaignModel:
 
     def predict_campaign(self, input_features):
         """Predicts sales uplift for a new campaign."""
-        # input_features should be a dictionary or list matching self.features
-        # Ensure input is 2D array
         if isinstance(input_features, dict):
              input_df = pd.DataFrame([input_features])
         else:
@@ -78,12 +76,6 @@ class CampaignModel:
 
     def calculate_roi(self, campaign_cost, predicted_uplift, avg_profit_per_sale=50):
         """Calculates ROI based on predicted sales uplift."""
-        # Assuming predicted_uplift is in currency value or unit sales?
-        # In generate_data, sales_uplift was calculated as a value, likely revenue/profit directly or units?
-        # Let's assume sales_uplift is Revenue for simplicity in this context, or we can assume it's units.
-        # Given the formula in generate_data: sales_uplift = (clicks * 2.5) + ... + (campaign_cost * 0.1)
-        # It seems like a monetary value. Let's treat it as Revenue Uplift.
-        
         net_profit = predicted_uplift - campaign_cost
         roi = (net_profit / campaign_cost) * 100
         return roi
