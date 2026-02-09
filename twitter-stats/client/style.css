@@ -1,0 +1,98 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #15202b;
+    /* Twitter Dark Dim */
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #192734;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    text-align: center;
+}
+
+h1 {
+    color: #1da1f2;
+    /* Twitter Blue */
+    margin-bottom: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #38444d;
+    background-color: #253341;
+    color: white;
+    outline: none;
+}
+
+input:focus {
+    border-color: #1da1f2;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: #1da1f2;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #1991db;
+}
+
+.hidden {
+    display: none;
+}
+
+#error {
+    color: #e0245e;
+    margin-top: 10px;
+}
+
+.stat-card {
+    background-color: #253341;
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #38444d;
+    padding-bottom: 5px;
+}
+
+.stat-row:last-child {
+    border-bottom: none;
+}
+
+.label {
+    color: #8899a6;
+}
+
+.value {
+    font-weight: bold;
+}
