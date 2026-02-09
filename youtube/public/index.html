@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Influencer Analytics</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Influencer Analytics</h1>
+            <p>Enter a YouTube video URL to get insights</p>
+        </header>
+
+        <div class="search-box">
+            <input type="text" id="videoUrl" placeholder="Paste YouTube Video URL here..." />
+            <button id="analyzeBtn">Analyze</button>
+        </div>
+
+        <div id="loading" class="hidden">Loading...</div>
+        <div id="error" class="hidden"></div>
+
+        <div id="resultCard" class="card hidden">
+            <img id="thumbnail" src="" alt="Video Thumbnail" class="thumbnail" />
+            <div class="card-content">
+                <h2 id="videoTitle"></h2>
+                <p id="channelName" class="channel-name"></p>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-label">Views</span>
+                        <span id="viewCount" class="stat-value"></span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Likes</span>
+                        <span id="likeCount" class="stat-value"></span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Comments</span>
+                        <span id="commentCount" class="stat-value"></span>
+                    </div>
+                </div>
+                
+                <div class="meta-info">
+                    Published on <span id="publishedDate"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
