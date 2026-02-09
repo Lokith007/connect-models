@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Stats Viewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Instagram Stats</h1>
+        <p class="subtitle">Enter a username to view public stats</p>
+
+        <div class="input-group">
+            <input type="text" id="usernameInput" placeholder="e.g. instagram">
+            <button id="fetchBtn">Search</button>
+        </div>
+
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p>Fetching data...</p>
+        </div>
+
+        <div id="error" class="hidden"></div>
+
+        <div id="results" class="hidden">
+            <div class="profile-header">
+                <img id="profilePic" src="" alt="Profile Pic">
+                <div class="profile-info">
+                    <h2 id="fullName">Full Name</h2>
+                    <p id="usernameDisplay">@username</p>
+                    <p id="biography">Biography text...</p>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <span class="stat-value" id="followers">0</span>
+                    <span class="stat-label">Followers</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-value" id="following">0</span>
+                    <span class="stat-label">Following</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-value" id="posts">0</span>
+                    <span class="stat-label">Posts</span>
+                </div>
+            </div>
+
+            <div id="privateBadge" class="hidden">🔒 Private Account</div>
+        </div>
+
+        <div id="raw-data-container" class="hidden">
+            <h3>Raw Data (Debug)</h3>
+            <pre id="rawData"></pre>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

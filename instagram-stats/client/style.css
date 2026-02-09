@@ -1,0 +1,185 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+    color: #262626;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    width: 450px;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Billabong', cursive;
+    /* Fallback to cursive if not available */
+    font-size: 3rem;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: #8e8e8e;
+    margin-bottom: 2rem;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+input {
+    flex: 1;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #dbdbdb;
+    background-color: #fafafa;
+    outline: none;
+    font-size: 1rem;
+}
+
+input:focus {
+    border-color: #a8a8a8;
+}
+
+button {
+    padding: 12px 25px;
+    border-radius: 8px;
+    border: none;
+    background-color: #0095f6;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #1877f2;
+}
+
+.hidden {
+    display: none;
+}
+
+#error {
+    color: #ed4956;
+    margin-bottom: 1rem;
+    padding: 10px;
+    background-color: #ffebee;
+    border-radius: 8px;
+}
+
+/* Results Styling */
+.profile-header {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    margin-bottom: 2rem;
+    gap: 20px;
+}
+
+#profilePic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #dbdbdb;
+    padding: 2px;
+}
+
+.profile-info h2 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+#usernameDisplay {
+    color: #8e8e8e;
+    margin: 2px 0 8px 0;
+    font-size: 0.9rem;
+}
+
+#biography {
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+    padding: 15px 0;
+    margin-bottom: 1rem;
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-value {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.stat-label {
+    color: #8e8e8e;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+#privateBadge {
+    background-color: #fafafa;
+    border: 1px solid #dbdbdb;
+    padding: 10px;
+    border-radius: 8px;
+    color: #262626;
+    font-weight: 600;
+}
+
+/* Spinner */
+.spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #c13584;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 10px auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#raw-data-container {
+    margin-top: 20px;
+    text-align: left;
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    max-height: 200px;
+    overflow: auto;
+}
