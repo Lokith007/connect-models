@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Influencer Content Analysis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Influencer Content Analysis</h1>
+            <p>Aggregate insights from Twitter, Instagram, and YouTube</p>
+        </header>
+
+        <div class="port-config">
+            <details>
+                <summary>Server Port Configuration (Advanced)</summary>
+                <div class="config-grid">
+                    <label>Twitter Port: <input type="number" id="port-twitter" value="5000"></label>
+                    <label>Instagram Port: <input type="number" id="port-instagram" value="5001"></label>
+                    <label>YouTube Port: <input type="number" id="port-youtube" value="3000"></label>
+                </div>
+            </details>
+        </div>
+
+        <div class="dashboard">
+            <!-- TWITTER SECTION -->
+            <div class="card twitter-card">
+                <div class="card-header">
+                    <h2>Twitter / X</h2>
+                    <span class="icon">🐦</span>
+                </div>
+                <div class="input-area">
+                    <input type="text" id="twitter-input" placeholder="Tweet URL or Profile URL">
+                    <button onclick="analyzeTwitter()">Analyze</button>
+                </div>
+                <div id="twitter-results" class="results-area hidden">
+                    <div class="stat-row">
+                        <span id="t-type" class="badge">Type</span>
+                        <h3 id="t-handle">@handle</h3>
+                    </div>
+                    <div class="metrics">
+                        <div class="metric">
+                            <span class="val" id="t-m1">0</span>
+                            <span class="lbl">Likes</span>
+                        </div>
+                        <div class="metric">
+                            <span class="val" id="t-m2">0</span>
+                            <span class="lbl">Retweets</span>
+                        </div>
+                        <div class="metric">
+                            <span class="val" id="t-m3">0</span>
+                            <span class="lbl">Replies</span>
+                        </div>
+                    </div>
+                    <div class="engagement-box">
+                        <span class="eng-label">Est. Engagement Rate</span>
+                        <span class="eng-val" id="t-eng">0%</span>
+                    </div>
+                </div>
+                <div id="t-error" class="error-msg hidden"></div>
+            </div>
+
+            <!-- INSTAGRAM SECTION -->
+            <div class="card instagram-card">
+                <div class="card-header">
+                    <h2>Instagram</h2>
+                    <span class="icon">📸</span>
+                </div>
+                <div class="input-area">
+                    <input type="text" id="insta-input" placeholder="Username">
+                    <button onclick="analyzeInstagram()">Analyze</button>
+                </div>
+                <div id="insta-results" class="results-area hidden">
+                    <div class="stat-row">
+                        <img id="i-pic" src="" alt="" class="mini-pic">
+                        <h3 id="i-handle">@username</h3>
+                    </div>
+                    <div class="metrics">
+                        <div class="metric">
+                            <span class="val" id="i-followers">0</span>
+                            <span class="lbl">Followers</span>
+                        </div>
+                        <div class="metric">
+                            <span class="val" id="i-following">0</span>
+                            <span class="lbl">Following</span>
+                        </div>
+                        <div class="metric">
+                            <span class="val" id="i-posts">0</span>
+                            <span class="lbl">Posts</span>
+                        </div>
+                    </div>
+                    <div class="engagement-box">
+                        <span class="eng-label">Follower Ratio</span>
+                        <span class="eng-val" id="i-ratio">0</span>
+                    </div>
+                </div>
+                <div id="i-error" class="error-msg hidden"></div>
+            </div>
+
+            <!-- YOUTUBE SECTION -->
+            <div class="card youtube-card">
+                <div class="card-header">
+                    <h2>YouTube</h2>
+                    <span class="icon">▶️</span>
+                </div>
+                <div class="input-area">
+                    <input type="text" id="yt-input" placeholder="Video URL">
+                    <button onclick="analyzeYouTube()">Analyze</button>
+                </div>
+                <div id="yt-results" class="results-area hidden">
+                    <div class="stat-row">
+                        <img id="y-thumb" src="" alt="" class="mini-thumb">
+                        <div class="yt-info">
+                            <h3 id="y-title">Video Title</h3>
+                            <span id="y-channel">Channel Name</span>
+                        </div>
+                    </div>
+                    <div class="metrics">
+                        <div class="metric">
+                            <span class="val" id="y-views">0</span>
+                            <span class="lbl">Views</span>
+                        </div>
+                        <div class="metric">
+                            <span class="val" id="y-likes">0</span>
+                            <span class="lbl">Likes</span>
+                        </div>
+                        <div class="metric">
+                            <span class="val" id="y-comments">0</span>
+                            <span class="lbl">Comments</span>
+                        </div>
+                    </div>
+                    <div class="engagement-box">
+                        <span class="eng-label">Like/View Ratio</span>
+                        <span class="eng-val" id="y-ratio">0%</span>
+                    </div>
+                </div>
+                <div id="y-error" class="error-msg hidden"></div>
+            </div>
+        </div>
+
+        <!-- ML ANALYSIS SECTION -->
+        <div id="ml-section" class="card ml-card hidden">
+            <div class="card-header">
+                <h2>🤖 AI Content Analysis</h2>
+                <span class="icon">✨</span>
+            </div>
+            <div class="ml-content">
+                <div class="score-circle">
+                    <span id="ml-score">0</span>
+                    <span class="label">Virality Score</span>
+                </div>
+                <div class="ml-details">
+                    <h3>Category: <span id="ml-category" class="highlight">-</span></h3>
+                    <p>Confidence: <span id="ml-confidence">-</span></p>
+                    <p id="ml-msg">Analyze a post above to see AI insights.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
